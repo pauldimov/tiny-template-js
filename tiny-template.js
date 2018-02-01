@@ -2,6 +2,7 @@
 //! version : 1.0.0
 //! authors : Pavel Dimov
 //! license : MIT
+//! https://github.com/pauldimov/tiny-template-js
 
 var tt = function () { };
 
