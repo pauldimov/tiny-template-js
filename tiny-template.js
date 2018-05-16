@@ -10,11 +10,15 @@ tt.Obj = function(templateID, obj) {
 	var html = null;
 	if(!templateID || templateID.length == '')
 		return '';
-	if(templateID.length < 100)
-		html = document.getElementById(templateID).innerHTML;
 
-	if(!html)
-		html = templateID;
+	var tmplElem = document.getElementById(templateID);
+	if (!html) {
+		if (tmplElem !== null) {
+			html = tmplElem.innerHTML;
+		} else {
+			html = templateID;
+		}
+	}
 
 	with (obj) {
 		html = html.replace(/\{{(.*?)\}}/g, function (g0, g1) {
@@ -53,3 +57,4 @@ tt.Array = function (templateID, obj) {
 
 	return result;
 };
+
