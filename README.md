@@ -14,8 +14,11 @@ Follow 4 simple steps:
 <script src='tiny-template.js'></script>
 ```
 ### 2. Make template 
+use `{{` and `}}` to place any model property or inline expression into template.
+
+Describe your template one of the ways below.
 #### 2.1. Place a HTML template directly on your page. 
-You may use any container. The best way is to wrap html into `script` block `<script type="text/html" id="my-template">...`
+You may use HTML from any container. The best way is to wrap html into `script` block like `<script type="text/html" id="my-template">...`. This kind of content is ignored by all browsers.
 ```html
 <script type="text/html" id='list-template-container'>
   <li data-id='{{id}}' class='{{name ? '' : 'empty-name-container'}}'>
@@ -23,13 +26,16 @@ You may use any container. The best way is to wrap html into `script` block `<sc
   </li>
 </script>
 ```
-#### 2.2. Store HTML template as Javascript text 
+#### 2.2. Describe template string directly in Javascript 
+Place your HTML-formatted string or any other template string into Javascript variable.
 ```javascript
 var templateText = "<li data-id='{{id}}' class='{{name ? '' : 'empty-name-container'}}'>{{name}}</li>";
+var templateText2 = "Hello, {{name}}! You win {{bingo}}$";
 ```
-use `{{` and `}}` to place any model property or expression into template
+You may use any string or HTML container as template;
 ### 3. Render your model using template 
   #### 3.1. Make string from single object  
+  You may use simple object as a model.
   ```javascript
   var model = {
     id: 1,
@@ -40,6 +46,7 @@ use `{{` and `}}` to place any model property or expression into template
   // or do the same using text JS template: resultHtmlText = tt.Obj(templateText, model); 
   ```
   #### 3.2. Make string from array of objects
+  You also may use an array as a model. Your template will be repeated for each array element.
   ```javascript
   var model = [{
     id: 1,
@@ -50,9 +57,10 @@ use `{{` and `}}` to place any model property or expression into template
   }];
   var resultHtmlText = tt.Array('list-template-container', model);
   // result: "<li data-id='1' class=''>Mary</li><li data-id='2' class='empty-name-container'></li>"
-  // or do the same using text JS template: resultHtmlText = tt.Array(templateText, model); 
+  // or do the same using text JS template: resultHtmlText = tt.Array(templateText2, model); 
   ```
   #### 3.3. Format string using Tiny Template JS
+  You may use Tiny Template JS as string formatter. Not so fancy but why not?
   ```javascript
   var resultHtmlText = tt.Obj(
   'Hello, {{name}}! You win {{bingo}}$', {
@@ -76,4 +84,8 @@ container.innerHTML = resultHtmlText
 #### 4.2. Populate target element using jQuery
 ```javascript
 $('#data-list').html(resultHtmlText)
+```
+#### 4.3. Use resulting string whatever you want
+```javascript
+var pdfHeader = resultHtmlText;
 ```
