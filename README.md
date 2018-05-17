@@ -1,13 +1,13 @@
 # Tiny Template JS - lightweight javascript template library
-Tiny Template JS (1.4 KB unminified) helps to generate html or other formatted texts, based on html templates or strings.
-That is excellent solution if you need to use templated texts in your Javascript, but you don't need to import any massive libraries or frameworks.
+Tiny Template JS (1.4 KB unminified) helps to generate html or any other formatted texts, based on html templates or simple strings.
+That is excellent solution if you need to use templated texts or repeaters in your Javascript, but you don't want to import any massive libraries or frameworks for that tiny task.
 
 ## How to use Tiny Template JS
 Follow 4 simple steps:
 1. *import Tiny Template JS* script to the page
 1. *describe template and model*
 1. *get resulting html string*
-1. *populate html container* with resulting html objects or use resulting string whatever you want
+1. *populate html container* with resulting html objects or use resulting string for mailing or reports, whatever...
 
 ### 1. Include Tiny Template JS library into your webpage
 ```html
@@ -15,6 +15,7 @@ Follow 4 simple steps:
 ```
 ### 2. Make template 
 use `{{` and `}}` to place any model property or inline expression into template.
+Your model can include nested objects or functions.
 
 Describe your template one of the ways below.
 #### 2.1. Place a HTML template directly on your page. 
