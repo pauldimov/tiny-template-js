@@ -1,15 +1,15 @@
-# Tiny Template lightweight javascript template library
-Tiny Template (1.4 KB unminified) helps to generate html texts, based on html templates.
+# Tiny Template JS - lightweight javascript template library
+Tiny Template JS (1.4 KB unminified) helps to generate html texts, based on html templates.
 That is excellent solution if you need to use templates in your Javascript, but you don't need to import any massive libraries or frameworks.
 
 ## How to use
 Simple steps to use template engine:
-* add tiny template script to the page
+* import tiny template script to the page
 * make template: html markup or JS text
 * render a model to html string using template
 * populate any html container with resulting html objects
 
-### 1. Include tiny template library into your webpage
+### 1. Include tiny template JS library into your webpage
 ```html
 <script src='tiny-template.js'></script>
 ```
@@ -36,7 +36,7 @@ use `{{` and `}}` to place any model property or expression into template
     name: 'Mary'
   };
   var resultHtmlText = tt.Obj('list-template-container', model);
-  // resultHtmlText = "<li data-id='1' class=''>Mary</li>"
+  // result: "<li data-id='1' class=''>Mary</li>"
   // or do the same using text JS template: resultHtmlText = tt.Obj(templateText, model); 
   ```
   #### 3.2. Render array of objects
@@ -49,7 +49,8 @@ use `{{` and `}}` to place any model property or expression into template
     name: null
   }];
   var resultHtmlText = tt.Array('list-template-container', model);
-  // resultHtmlText = "<li data-id='1' class=''>Mary</li><li data-id='2' class='empty-name-container'></li>"
+  // result: "<li data-id='1' class=''>Mary</li><li data-id='2' class='empty-name-container'></li>"
+  // or do the same using text JS template: resultHtmlText = tt.Array(templateText, model); 
   ```
 ### 4. Populate any html container with resulting html objects
 There is some target html element on your page
